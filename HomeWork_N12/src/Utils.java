@@ -51,10 +51,5 @@ public class Utils {
                 System.out.println();
             }
         }
-
-        System.out.println("Final updated array:");
-        for (String element : array) {
-            System.out.print(element + " ");
-        }
     }
 }
