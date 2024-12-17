@@ -10,14 +10,13 @@ public class Utils {
         while (true) {
             System.out.println("\nChoose an action: \n1-Add Product \n2-Remove Product \n3-Search Product \n4-Print Products Sorted \n5-Exit");
             int choice = scanner.nextInt();
-            scanner.nextLine(); // Consume the newline
+            scanner.nextLine();
 
             switch (choice) {
-                case 1: // Add a new product
+                case 1:
                     System.out.print("Enter product name: ");
                     String name = scanner.nextLine();
 
-                    // Check for duplicates
                     boolean isDuplicate = products.stream()
                             .anyMatch(p -> p.getName().equalsIgnoreCase(name));
 
@@ -32,14 +31,14 @@ public class Utils {
                     }
                     break;
 
-                case 2: // Delete a specific product by name
+                case 2:
                     System.out.print("Enter product name to remove: ");
                     String toRemove = scanner.nextLine();
                     boolean removed = products.removeIf(p -> p.getName().equalsIgnoreCase(toRemove));
                     System.out.println(removed ? "Product removed successfully." : "Product not found.");
                     break;
 
-                case 3: // Search for a product by name
+                case 3:
                     System.out.print("Enter product name to search: ");
                     String toSearch = scanner.nextLine();
                     Optional<Product> foundProduct = products.stream()
@@ -61,7 +60,7 @@ public class Utils {
                     }
                     break;
 
-                case 4: // Print products sorted
+                case 4:
                     System.out.println("Choose sorting option: \n1-Sort by Name \n2-Sort by Price");
                     int sortChoice = scanner.nextInt();
                     scanner.nextLine(); // Consume the newline
@@ -78,7 +77,7 @@ public class Utils {
                     products.forEach(System.out::println);
                     break;
 
-                case 5: // Exit the program
+                case 5:
                     System.out.println("Exiting the program. Goodbye!");
                     return;
 
